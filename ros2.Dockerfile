@@ -13,7 +13,12 @@ RUN apt-get update \
     && apt install -y libgtsam-dev libgtsam-unstable-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/bash", "-c"]
+
+RUN mkdir -p ~/ros2_ws/src \ 
+    && cd ~/ros2_ws/src \
+    && git clone https://github.com/sepehrsaryazdi/LIO-SAM.git \
+    && source /opt/ros/humble/setup.bash
 
 # RUN mkdir -p ~/catkin_ws/src \
 #     && cd ~/catkin_ws/src \
